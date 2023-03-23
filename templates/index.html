@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+    <link rel="icon" href="https://cdn.vectorstock.com/i/1000x1000/26/28/calculator-simple-sign-orange-icon-on-black-vector-13392628.webp" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='style.css') }}"/>
+</head>
+<body>
+    <h1>Grade Calculator</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <p>
+        <label for="type">H1 or H2:</label>
+        <br>
+        <input type="radio" id="option1" name="option" value="H1">
+        <label for="option1">H1</label>
+        <br>
+        <input type="radio" id="option2" name="option" value="H2">
+        <label for="option2">H2</label>
+        </p>
+        <label for="engagement_score">Engagement score (0-10):</label>
+        <input type="number" name="engagement_score" id="engagement_score" min="0" max="10" required><br><br>
+        <label for="mid_year_score">Mid-year examination score (in %):</label>
+        <input type="number" name="mid_year_score" id="mid_year_score" min="0" max="100" step="0.01" required><br><br>
+        <label for="promo_score">Promo exam score (in %):</label>
+        <input type="number" name="promo_score" id="promo_score" min="0" max="100" step="0.01" required><br><br>
+      
+    <input type="submit" value="Calculate grade">
+    </form>
+    <p></p>
+    <hr>
+    <p></p> 
+    <h2>Grade Calculator</h2>
+    <p>Your overall grade is: {{ grade }}</p>
+    <p>Your RP is: {{ RP }}</p>
+   
+  
+    
+</body>
+</html>
